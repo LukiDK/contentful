@@ -13,12 +13,13 @@ function App() {
 
     useEffect(() => {
         client
-            .getEntries({content_type: "newsArticle"})
-            .then((response) => setData(response))
+            .getEntries({ content_type: "newsArticle" })
+            .then((response) => {
+                console.log(response);
+                setData(response);
+            })
             .catch(console.error);
     }, []);
-
-    console.log("Contentful data", data);
 
     return (
         <>
@@ -28,8 +29,11 @@ function App() {
                     <div className="galleryCard" key={item.sys.id}>
                         <h2>{item.fields.title}</h2>
                         <img
-                            src={"https:" + item.fields.image.fields.file.url}
-                            alt={item.fields.image.fields.title}
+                            src={
+                                "https:" +
+                                item.fields.articleImg.fields.file.url
+                            }
+                            alt={item.fields.articleImg.fields.title}
                         />
                         {documentToReactComponents(item.fields.description)}
                     </div>
