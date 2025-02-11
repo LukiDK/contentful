@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Nav } from "./components/nav/nav";
+import "./App.css";
+
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+import * as contentful from "contentful";
 import { client } from "./client/contentfulClient";
 import { Navbar } from "./components/navbar/navbar";
 
@@ -13,19 +19,22 @@ function App() {
     }, []);
 
     console.log("Contentful data", data);
-    
+
     return (
         <>
-        <Navbar />
-            <h1>Hello</h1>
-            {
-                data && data.items.map((item) => (
-                    <div key={item.sys.id}>
+            <Nav />
+            <div className="container">
+                {data?.items.map((item) => (
+                    <div className="galleryCard" key={item.sys.id}>
                         <h2>{item.fields.title}</h2>
-                        <p>{item.fields.body}</p>
+                        <img
+                            src={"https:" + item.fields.image.fields.file.url}
+                            alt={item.fields.image.fields.title}
+                        />
+                        {documentToReactComponents(item.fields.description)}
                     </div>
-                ))
-            }
+                ))}
+            </div>
         </>
     );
 }
