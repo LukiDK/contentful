@@ -7,6 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import * as contentful from "contentful";
 import { client } from "./client/contentfulClient";
 import { Navbar } from "./components/navbar/navbar";
+import { Footer } from "./components/footer/footer";
 
 function App() {
     const [data, setData] = useState();
@@ -39,6 +40,7 @@ function App() {
                     </div>
                 ))}
             </div>
+            <Footer />
         </>
     );
 }
