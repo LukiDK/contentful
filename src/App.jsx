@@ -10,6 +10,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Frontpage />} />
             <Route path="/details/:articleID" element={<Detailspage />} />
+            <Route path="/category/:category" element={<Frontpage />} />
           </Route>
         </Routes>
       </BrowserRouter>

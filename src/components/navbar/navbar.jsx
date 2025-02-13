@@ -9,25 +9,25 @@ export const Navbar = () => {
                     <NavLink to="/">INGN</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Alle</NavLink>
+                    <NavLink to="category/alle">Alle</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Indland</NavLink>
+                    <NavLink to="category/indland">Indland</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Udland</NavLink>
+                    <NavLink to="category/udland">Udland</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Teknologi</NavLink> 
+                    <NavLink to="category/">Teknologi</NavLink> 
                 </li>
                 <li>
-                    <NavLink to="/">Sport</NavLink>
+                    <NavLink to="category/sport">Sport</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Politik</NavLink>
+                    <NavLink to="category/politik">Politik</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/">Samfund</NavLink>
+                    <NavLink to="category/samfund">Samfund</NavLink>
                 </li>
             </ul>
         </NavbarStyled>
