@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Frontpage } from "./pages/frontpage";
-import { Detailspage } from "./pages/detailspage";
+import { Frontpage } from "./pages/frontpage/frontpage";
+import { Detailspage } from "./pages/detailspage/detailspage";
 import { MainLayout } from "./layout/MainLayout";
 
 function App() {
