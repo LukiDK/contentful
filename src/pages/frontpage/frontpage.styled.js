@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const FrontpageStyled = styled.div`
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: auto; /* Adjust row height based on content */
@@ -14,8 +15,7 @@ export const FrontpageStyled = styled.div`
         "e1 e1 d1 d1"
         "f1 f1 f1 f1"
         "g1 g1 g1 g1"
-        "h1 h1 h1 h1"
-        "i1 i1 j1 j1";
+        "h1 h1 i1 i1";
 
     .article {
         padding: 2rem;
@@ -92,9 +92,21 @@ export const FrontpageStyled = styled.div`
 
     .article-8 {
         grid-area: h1;
+
+        img {
+            max-height: 180px;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .article-9 {
         grid-area: i1;
+
+        img {
+            max-height: 180px;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 `;

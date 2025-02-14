@@ -5,12 +5,14 @@ export const FooterStyled = styled.footer`
     background-color: white;
     display: flex;
     justify-content: space-between;
+    padding: 2rem;
 
     .container {
         display: flex;
         justify-content: space-between;
         max-width: 1080px;
         width: 100%;
+        margin: 0 auto;
 
         .footer-links {
             list-style: none;
