@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const FrontpageStyled = styled.div`
+    max-width: 1200px;
+    margin: 0 auto; 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(9, 1fr);
+    grid-auto-rows: auto; /* Adjust row height based on content */
     grid-template-areas:
         "a1 a1 a1 a1"
         "a1 a1 a1 a1"
@@ -15,12 +17,53 @@ export const FrontpageStyled = styled.div`
         "h1 h1 h1 h1"
         "i1 i1 j1 j1";
 
-    .article img {
+    .article {
+        padding: 2rem;
+        background-color: white;
         width: 100%;
+        height: 100%;
+
+        .title {
+            font-size: 4rem;
+            font-family: "Roboto Flex", serif;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .article-text {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .info {
+            color: red;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        img {
+            width: 100%;
+        }
     }
 
     .article-1 {
         grid-area: a1;
+
+        img {
+            max-height: 600px;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .article-2 {

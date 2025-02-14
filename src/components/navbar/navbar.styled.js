@@ -8,7 +8,7 @@ export const NavbarStyled = styled.nav`
 
     ul {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         list-style: none;
         max-width: 1200px;
         margin: 0 auto;
@@ -16,16 +16,21 @@ export const NavbarStyled = styled.nav`
         li {
             padding: 1rem;
             position: relative;
+            font-size: 2.4rem;
 
             a {
                 text-decoration: none;
                 color: black;
+                font-size: 2.4rem;
             }
 
             &:first-child a {
                 color: red;
                 font-size: 4.6rem;
                 font-family: "Righteous", serif;
+            }
+            &:first-child {
+                margin-right: auto;
             }
         }
 

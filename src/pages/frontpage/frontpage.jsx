@@ -37,24 +37,25 @@ export const Frontpage = () => {
                 return (
                     <div
                         key={article.fields.slug}
-                        className={`article article-${index}`}
+                        className={`article article-${index + 1}`}
                     >
                         <Link to={`/details/${article.fields.slug}`}>
-                            <h2>{article.fields.title}</h2>
+                            <h2 className="title">{article.fields.title}</h2>
                         </Link>
+                        <div className="article-text">
+                            {documentToReactComponents(article.fields.text)}
+                        </div>
+                        <p className="info">
+                            D.
+                            {new Date(
+                                article.fields.releaseDate
+                            ).toLocaleDateString()}
+                            -{article.fields.byline}
+                        </p>
                         <img
                             src={`https:${article.fields.articleImg.fields.file.url}`}
                             alt={article.fields.title}
                         />
-                        <p>{article.fields.byline}</p>
-                        <p>
-                            {new Date(
-                                article.fields.releaseDate
-                            ).toLocaleDateString()}
-                        </p>
-                        <div>
-                            {documentToReactComponents(article.fields.text)}
-                        </div>
                     </div>
                 );
             })}
