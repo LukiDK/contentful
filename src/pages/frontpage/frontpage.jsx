@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../../client/contentfulClient";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { FrontpageStyled } from "./frontpage.styled";
 
 export const Frontpage = () => {
     const [articleData, setArticleData] = useState();
@@ -28,27 +29,35 @@ export const Frontpage = () => {
             .catch((err) => console.log(err));
     }, [category]);
 
+    console.log(articleData);
+
     return (
-        <div>
-            {articleData?.map((article) => {
-                const { title, slug, image, byline, releaseDate, text } =
-                    article.fields;
+        <FrontpageStyled>
+            {articleData?.map((article, index) => {
                 return (
-                    <div key={slug} className="article">
-                        <NavLink to={`/details/${slug}`}>
-                            <h2>{title}</h2>
-                        </NavLink>
-                        {image && (
-                            <img src={image.fields.file.url} alt={title} />
-                        )}
-                        <p>{byline}</p>
-                        <p>{new Date(releaseDate).toLocaleDateString()}</p>
+                    <div
+                        key={article.fields.slug}
+                        className={`article article-${index}`}
+                    >
+                        <Link to={`/details/${article.fields.slug}`}>
+                            <h2>{article.fields.title}</h2>
+                        </Link>
+                        <img
+                            src={`https:${article.fields.articleImg.fields.file.url}`}
+                            alt={article.fields.title}
+                        />
+                        <p>{article.fields.byline}</p>
+                        <p>
+                            {new Date(
+                                article.fields.releaseDate
+                            ).toLocaleDateString()}
+                        </p>
                         <div>
-                            {documentToReactComponents(text).slice(0, 1)}
+                            {documentToReactComponents(article.fields.text)}
                         </div>
                     </div>
                 );
             })}
-        </div>
+        </FrontpageStyled>
     );
 };

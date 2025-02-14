@@ -30,16 +30,19 @@ export const Detailspage = () => {
                         }
                         alt={article.fields.articleImg.fields.title}
                     />
-                    <p className="title">{article.fields.title}</p>
+                    <div className="article-textcontent">
+                        <p className="title">{article.fields.title}</p>
 
-                    <p className="info">
-                        {article.fields.byline} -
-                        {new Date(
-                            article.fields.releaseDate
-                        ).toLocaleDateString()}
-                    </p>
-                    <div className="article-content">
-                        {documentToReactComponents(article.fields.text)}
+                        <p className="info">
+                            D.
+                            {new Date(
+                                article.fields.releaseDate
+                            ).toLocaleDateString()}
+                            -{article.fields.byline}
+                        </p>
+                        <div className="article-text">
+                            {documentToReactComponents(article.fields.text)}
+                        </div>
                     </div>
                 </DetailspageStyled>
             ))}

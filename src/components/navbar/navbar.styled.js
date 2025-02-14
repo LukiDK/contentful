@@ -4,6 +4,7 @@ export const NavbarStyled = styled.nav`
     width: 100%;
     background-color: white;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
 
     ul {
         display: flex;
